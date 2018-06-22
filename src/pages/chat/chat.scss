@@ -1,0 +1,19 @@
+page-chat {
+ .innerMessage{
+    clear: both;
+    width:65%;
+    background-color: #488aff;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 10px;
+    color:#fff    
+ }
+ .messageLeft{
+     float: left;
+ }
+
+ .messageRight{
+     float: right;
+     background-color: #32db64;
+ }
+}
