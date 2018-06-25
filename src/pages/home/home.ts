@@ -1,6 +1,8 @@
 import { ChatPage } from './../chat/chat';
 import { Component } from '@angular/core';
-import { NavController , AlertController} from 'ionic-angular';
+import { NavController , AlertController, ToastController} from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { User } from './../../models/user';
 
 
 
@@ -12,8 +14,9 @@ export class HomePage {
 
   username:string ='';
 
-  constructor(public navCtrl: NavController,
-  private alertCtrl: AlertController) {
+  constructor(private afAuth : AngularFireAuth, private toast:ToastController,private alertCtrl: AlertController,
+    public navCtrl: NavController,
+  ) {
 
   }
 
@@ -35,6 +38,24 @@ export class HomePage {
     }else{
       this.showAlert('Error','username invalid')
     }
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad RegisterPage');
+    this.afAuth.authState.subscribe(data =>{
+      if(data.email && data.uid){
+        this.toast.create({
+          message: `Login Successful. Welcome ${data.email} !`,
+          duration: 4000
+        }).present()
+      }
+      else{
+        this.toast.create({
+          message: `Error`,
+          duration: 3000
+        }).present()
+      }
+    })
   }
 
 }

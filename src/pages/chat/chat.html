@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="secondary">
     <ion-title>chat</ion-title>
   </ion-navbar>
 
@@ -33,14 +33,14 @@
 </ion-content>
 
 <ion-footer>
-    <ion-toolbar style="background-color: #948e8e">
+    <ion-toolbar color="secondary">
 
        
         <ion-grid>
             <ion-row>
 
-              <ion-input type="text" [(ngModel)]="message" style="background-color: #fff"></ion-input>
-              <button ion-button icon-only style="float:right" (click)="sendMessage()"><ion-icon name="send"></ion-icon></button>
+              <ion-input type="text" [(ngModel)]="message" style="background-color: #fff;border-radius: 25px;"></ion-input>
+              <button ion-button icon-only color="light" style="float:right;margin-left: 3px;" (click)="sendMessage()"><ion-icon color="primary" name="send"></ion-icon></button>
 
             </ion-row>            
           </ion-grid>
